@@ -81,8 +81,7 @@ Key charts:
 
 ```bash
 # 1️⃣ Clone this repo
-git clone https://github.com/yourusername/netflix-data-analysis.git
-cd netflix-data-analysis
+git clone https://github.com/[IamAmbrose/Netflix_data-cleaning-analysis-and-visualization.git]
 
 # 2️⃣ Install Python dependencies
 pip install pandas matplotlib seaborn streamlit
@@ -94,10 +93,10 @@ streamlit run netflix_dashboard.py
 ## **Streamlit Dashboard**
 
 This project includes a Streamlit app with:
--Filters for Type, Country, Release Year
--Visuals for Type, Ratings, Genres, Countries
--Duration insights
--Cleaned data download button
+- Filters for Type, Country, Release Year
+- Visuals for Type, Ratings, Genres, Countries
+- Duration insights
+- Cleaned data download button
  
 *👉 Live Dashboard:* [Streamlit App](https://netflixdata-cleaning-analysis-and-visualization-c9cbeeggyr6wjm.streamlit.app/)
 
@@ -106,10 +105,10 @@ This project includes a Streamlit app with:
 ## **🛠️ Technologies Used**
 
 Key technologies used:
--Python 3
--Pandas
--Matplotlib
--Seaborn
+- Python 3
+- Pandas
+- Matplotlib
+- Seaborn
 
 ---
 
