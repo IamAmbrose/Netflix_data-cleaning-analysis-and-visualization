@@ -88,7 +88,7 @@ pip install pandas matplotlib seaborn streamlit
 # 3️⃣ Run the notebook or the Streamlit dashboard
 streamlit run netflix_dashboard.py
 ```
-Streamlit Dashboard
+**Streamlit Dashboard**
 This project includes a Streamlit app with:
 
 Filters for Type, Country, Release Year
@@ -99,18 +99,15 @@ Duration insights
 
 Cleaned data download button
  
-👉 Live Dashboard: [Streamlit App](https://netflixdata-cleaning-analysis-and-visualization-c9cbeeggyr6wjm.streamlit.app/)
+*👉 Live Dashboard:* [Streamlit App](https://netflixdata-cleaning-analysis-and-visualization-c9cbeeggyr6wjm.streamlit.app/)
 
-🛠️ Technologies Used
+**🛠️ Technologies Used**
 Python 3
-
 Pandas
-
 Matplotlib
-
 Seaborn
 
-📜 Author
+*📜 Author*
 Ambrose Henry
 
 🔗 [GitHub](https://github.com/IamAmbrose) | [LinkedIn](https://www.linkedin.com/in/ambrose-henry-m-30bb84235/)
