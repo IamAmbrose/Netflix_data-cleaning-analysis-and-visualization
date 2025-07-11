@@ -227,30 +227,38 @@ plt.close(fig)
 st.subheader("⏱️ Duration Analysis")
 col5, col6 = st.columns(2)
 
+# Movies
 with col5:
     st.markdown("**Movies (Minutes)**")
     movie_durations = movies_df['duration_int'].dropna()
-    fig, ax = plt.subplots()
-    sns.histplot(movie_durations, bins=30, kde=True, color="#E50914", ax=ax)
-    ax.set_xlabel("Minutes")
-    ax.set_ylabel("Frequency")
-    ax.set_title("Movie Durations")
-    st.pyplot(fig)
-    plt.close(fig)
+    if not movie_durations.empty:
+        fig, ax = plt.subplots()
+        sns.histplot(movie_durations, bins=30, kde=True, color="#E50914", ax=ax)
+        ax.set_xlabel("Minutes")
+        ax.set_ylabel("Frequency")
+        ax.set_title("Movie Durations")
+        st.pyplot(fig)
+        plt.close(fig)
+    else:
+        st.info("No data to display for movies with the current filters.")
 
+# TV Shows
 with col6:
     st.markdown("**TV Shows (Seasons)**")
     tv_durations = tvshows_df['duration_int'].dropna()
-    fig, ax = plt.subplots()
-    sns.countplot(x=tv_durations, palette="tab10", ax=ax)
-    ax.set_xlabel("Seasons")
-    ax.set_ylabel("Count")
-    ax.set_title("TV Show Seasons")
-    st.pyplot(fig)
-    plt.close(fig)
+    if not tv_durations.empty:
+        fig, ax = plt.subplots()
+        sns.countplot(x=tv_durations, palette="tab10", ax=ax)
+        ax.set_xlabel("Seasons")
+        ax.set_ylabel("Count")
+        ax.set_title("TV Show Seasons")
+        st.pyplot(fig)
+        plt.close(fig)
+    else:
+        st.info("No data to display for TV shows with the current filters.")
 
 # Download Cleaned Data
-st.markdown("###Download Filtered Dataset")
+st.markdown("Download Filtered Dataset")
 st.download_button(
     label="Download CSV",
     data=filtered_df.to_csv(index=False).encode('utf-8'),
@@ -261,6 +269,6 @@ st.download_button(
 # Footer
 st.markdown("---")
 st.markdown(
-    "<p style='text-align:center;'>Built Streamlit | Netflix Data Project</p>",
+    "<p style='text-align:center;'>Built with Streamlit | Netflix Data Project</p>",
     unsafe_allow_html=True
 )
