@@ -61,7 +61,6 @@ Netflix’s library is:
 - Heavy on **US content** but strongly global.
 - Dominated by **adult-oriented genres**.
 - Focused on **short, binge-ready series**.
-- Ready for beginner ML — clustering genres, classifying type, or building a recommender.
 
 ---
 
