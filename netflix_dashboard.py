@@ -20,7 +20,7 @@ def load_data():
     df['year_added'] = df['date_added'].dt.year
     df['month_added'] = df['date_added'].dt.month_name()
     df['month_num'] = df['date_added'].dt.month
-    df['duration_int'] = df['duration'].str.extract(r'(\\d+)').astype(float)
+    df['duration_int'] = df['duration'].str.extract(r'(\d+)').astype(float)
     return df
 
 df = load_data()
