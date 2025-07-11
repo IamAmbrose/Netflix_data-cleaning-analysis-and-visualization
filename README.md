@@ -3,6 +3,8 @@
 This project analyzes a real Netflix dataset with **Python, Pandas, Matplotlib, Seaborn, and Streamlit**.  
 It includes data cleaning, exploratory data analysis (EDA), clear insights, and is ready for beginner-level machine learning tasks.
 
+*👉 Live Dashboard:* [Streamlit App](https://netflixdata-cleaning-analysis-and-visualization-c9cbeeggyr6wjm.streamlit.app/)
+
 ---
 
 ## 📌 **Project Objective**
@@ -102,6 +104,7 @@ streamlit run netflix_dashboard.py
 ---
 
 ## **🛠️ Technologies Used**
+
 -Python 3
 -Pandas
 -Matplotlib
