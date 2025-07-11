@@ -93,7 +93,7 @@ streamlit run netflix_dashboard.py
 
 ## **Streamlit Dashboard**
 
--This project includes a Streamlit app with:
+This project includes a Streamlit app with:
 -Filters for Type, Country, Release Year
 -Visuals for Type, Ratings, Genres, Countries
 -Duration insights
@@ -105,6 +105,7 @@ streamlit run netflix_dashboard.py
 
 ## **🛠️ Technologies Used**
 
+Key technologies used:
 -Python 3
 -Pandas
 -Matplotlib
