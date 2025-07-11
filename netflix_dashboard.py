@@ -3,10 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#Netflix-style dark theme
-sns.set_style("darkgrid")
-plt.rcParams['axes.facecolor'] = '#121212'
-plt.rcParams['figure.facecolor'] = '#121212'
+sns.set_theme(style="whitegrid")  # default light Seaborn style
 
 st.set_page_config(
     page_title="🎬 Netflix Data Dashboard",
