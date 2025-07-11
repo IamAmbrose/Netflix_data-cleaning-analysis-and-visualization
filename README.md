@@ -53,7 +53,7 @@ It includes data cleaning, exploratory data analysis (EDA), clear insights, and 
 
 ---
 
-##**Conclusion**
+**Conclusion**
 
 Netflix’s library is:
 - Heavy on **US content** but strongly global.
@@ -88,29 +88,33 @@ pip install pandas matplotlib seaborn streamlit
 # 3️⃣ Run the notebook or the Streamlit dashboard
 streamlit run netflix_dashboard.py
 ```
-**Streamlit Dashboard**
-This project includes a Streamlit app with:
 
-Filters for Type, Country, Release Year
+## **Streamlit Dashboard**
 
-Visuals for Type, Ratings, Genres, Countries
-
-Duration insights
-
-Cleaned data download button
+-This project includes a Streamlit app with:
+-Filters for Type, Country, Release Year
+-Visuals for Type, Ratings, Genres, Countries
+-Duration insights
+-Cleaned data download button
  
 *👉 Live Dashboard:* [Streamlit App](https://netflixdata-cleaning-analysis-and-visualization-c9cbeeggyr6wjm.streamlit.app/)
 
-**🛠️ Technologies Used**
-Python 3
-Pandas
-Matplotlib
-Seaborn
+---
 
-*📜 Author*
+## **🛠️ Technologies Used**
+-Python 3
+-Pandas
+-Matplotlib
+-Seaborn
+
+---
+
+## *📜 Author*
+
 Ambrose Henry
-
 🔗 [GitHub](https://github.com/IamAmbrose) | [LinkedIn](https://www.linkedin.com/in/ambrose-henry-m-30bb84235/)
+
+---
 
 ⭐️ Show Your Support!
 If you like this project:
