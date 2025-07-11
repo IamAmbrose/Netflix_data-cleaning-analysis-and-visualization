@@ -3,9 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# -------------------------------
-# ✅ Netflix-style dark theme
-# -------------------------------
+# Netflix-style dark theme
 sns.set_style("darkgrid")
 plt.rcParams['axes.facecolor'] = '#121212'
 plt.rcParams['figure.facecolor'] = '#121212'
@@ -20,9 +18,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# -------------------------------
-# ✅ Load Data
-# -------------------------------
+#Load Data
 @st.cache_data
 def load_data():
     df = pd.read_csv("netflix1.csv")
@@ -35,9 +31,8 @@ def load_data():
 
 df = load_data()
 
-# -------------------------------
-# ✅ Sidebar Filters
-# -------------------------------
+
+#Sidebar Filters
 st.sidebar.title("📊 Filters")
 content_type = st.sidebar.multiselect(
     "Type", df['type'].unique(), default=df['type'].unique()
@@ -61,18 +56,14 @@ if selected_country:
         filtered_df['country'].fillna('NA').str.contains('|'.join(selected_country))
     ]
 
-# -------------------------------
-# ✅ Page Title & Preview
-# -------------------------------
+# Page Title & Preview
 st.title("🎥 Netflix Data Dashboard")
 st.markdown("Explore Netflix’s global catalog — filter by type, country, year — and discover trends 📈")
 
 st.write(f"**Total Titles:** {filtered_df.shape[0]}")
 st.dataframe(filtered_df.head(5))
 
-# -------------------------------
-# ✅ Type Distribution
-# -------------------------------
+#Type Distribution
 col1, col2 = st.columns(2)
 
 with col1:
@@ -96,9 +87,7 @@ with col2:
     st.pyplot(plt.gcf())
     plt.clf()
 
-# -------------------------------
-# ✅ Top 10 Countries
-# -------------------------------
+#Top 10 Countries
 st.subheader("🌍 Top 10 Countries")
 top_countries = (
     filtered_df['country']
@@ -118,9 +107,7 @@ plt.ylabel("Count")
 st.pyplot(plt.gcf())
 plt.clf()
 
-# -------------------------------
-# ✅ Top 10 Directors
-# -------------------------------
+# Top 10 Directors
 st.subheader("🎬 Top 10 Directors")
 top_directors = (
     filtered_df['director']
@@ -232,14 +219,16 @@ plt.xticks(rotation=45)
 st.pyplot(plt.gcf())
 plt.clf()
 
-# -------------------------------
-# ✅ Duration Analysis
-# -------------------------------
+#Duration Analysis
 st.subheader("⏱️ Duration Analysis")
+
+# ✅ Define the columns first!
+col5, col6 = st.columns(2)
 
 # Movies Duration
 with col5:
     st.markdown("**Movies (Minutes)**")
+    movie_durations = movies_df['duration_int'].dropna()
     fig1, ax1 = plt.subplots()
     sns.histplot(movie_durations, bins=30, kde=True, color="#E50914", ax=ax1)
     ax1.set_xlabel("Minutes")
@@ -249,6 +238,7 @@ with col5:
 # TV Shows Duration
 with col6:
     st.markdown("**TV Shows (Seasons)**")
+    tv_durations = tvshows_df['duration_int'].dropna()
     fig2, ax2 = plt.subplots()
     sns.countplot(x=tv_durations, palette="tab10", ax=ax2)
     ax2.set_xlabel("Seasons")
@@ -256,9 +246,7 @@ with col6:
     ax2.set_title("TV Show Seasons")
     st.pyplot(fig2)
 
-# -------------------------------
-# ✅ Download Cleaned Data
-# -------------------------------
+#Download Cleaned Data
 st.markdown("### 📥 Download Filtered Dataset")
 st.download_button(
     label="Download CSV",
@@ -267,9 +255,7 @@ st.download_button(
     mime='text/csv'
 )
 
-# -------------------------------
-# ✅ Footer
-# -------------------------------
+# Footer
 st.markdown("---")
 st.markdown(
     "<p style='text-align:center;'>Built using Streamlit | Netflix Data Project</p>",
