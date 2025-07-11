@@ -3,14 +3,10 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Netflix-style dark theme
+#Netflix-style dark theme
 sns.set_style("darkgrid")
 plt.rcParams['axes.facecolor'] = '#121212'
 plt.rcParams['figure.facecolor'] = '#121212'
-plt.rcParams['axes.labelcolor'] = '#FFFFFF'
-plt.rcParams['xtick.color'] = '#FFFFFF'
-plt.rcParams['ytick.color'] = '#FFFFFF'
-plt.rcParams['text.color'] = '#FFFFFF'
 
 st.set_page_config(
     page_title="🎬 Netflix Data Dashboard",
@@ -31,8 +27,7 @@ def load_data():
 
 df = load_data()
 
-
-#Sidebar Filters
+# Sidebar Filters
 st.sidebar.title("📊 Filters")
 content_type = st.sidebar.multiselect(
     "Type", df['type'].unique(), default=df['type'].unique()
@@ -56,36 +51,42 @@ if selected_country:
         filtered_df['country'].fillna('NA').str.contains('|'.join(selected_country))
     ]
 
-# Page Title & Preview
+#Page Title & Preview
 st.title("🎥 Netflix Data Dashboard")
 st.markdown("Explore Netflix’s global catalog — filter by type, country, year — and discover trends 📈")
 
 st.write(f"**Total Titles:** {filtered_df.shape[0]}")
 st.dataframe(filtered_df.head(5))
 
-#Type Distribution
+# Type Distribution
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Movies vs TV Shows")
     type_counts = filtered_df['type'].value_counts().reset_index()
     type_counts.columns = ['Type', 'Count']
-    sns.barplot(data=type_counts, x='Type', y='Count', palette="Reds_r")
-    plt.xlabel("Type")
-    plt.ylabel("Count")
-    st.pyplot(plt.gcf())
-    plt.clf()
+    fig, ax = plt.subplots()
+    sns.barplot(data=type_counts, x='Type', y='Count', palette="Reds_r", ax=ax)
+    ax.set_xlabel("Type", color="white")
+    ax.set_ylabel("Count", color="white")
+    ax.set_title("Movies vs TV Shows", color="white")
+    ax.tick_params(colors="white")
+    st.pyplot(fig)
+    plt.close(fig)
 
 with col2:
     st.subheader("Top 10 Ratings")
     top_ratings = filtered_df['rating'].value_counts().head(10).reset_index()
     top_ratings.columns = ["Rating", "Count"]
-    sns.barplot(data=top_ratings, x="Rating", y="Count", hue="Rating", dodge=False, palette="tab10", legend=False)
+    fig, ax = plt.subplots()
+    sns.barplot(data=top_ratings, x="Rating", y="Count", hue="Rating", dodge=False, palette="tab10", ax=ax, legend=False)
+    ax.set_xlabel("Rating", color="white")
+    ax.set_ylabel("Count", color="white")
+    ax.set_title("Top 10 Ratings", color="white")
+    ax.tick_params(colors="white")
     plt.xticks(rotation=45)
-    plt.xlabel("Rating")
-    plt.ylabel("Count")
-    st.pyplot(plt.gcf())
-    plt.clf()
+    st.pyplot(fig)
+    plt.close(fig)
 
 #Top 10 Countries
 st.subheader("🌍 Top 10 Countries")
@@ -100,14 +101,17 @@ top_countries = (
     .reset_index()
 )
 top_countries.columns = ["Country", "Count"]
-sns.barplot(data=top_countries, x="Country", y="Count", hue="Country", dodge=False, palette="tab10", legend=False)
+fig, ax = plt.subplots()
+sns.barplot(data=top_countries, x="Country", y="Count", hue="Country", dodge=False, palette="tab10", ax=ax, legend=False)
+ax.set_xlabel("Country", color="white")
+ax.set_ylabel("Count", color="white")
+ax.set_title("Top 10 Countries", color="white")
+ax.tick_params(colors="white")
 plt.xticks(rotation=45)
-plt.xlabel("Country")
-plt.ylabel("Count")
-st.pyplot(plt.gcf())
-plt.clf()
+st.pyplot(fig)
+plt.close(fig)
 
-# Top 10 Directors
+#Top 10 Directors
 st.subheader("🎬 Top 10 Directors")
 top_directors = (
     filtered_df['director']
@@ -120,16 +124,17 @@ top_directors = (
     .reset_index()
 )
 top_directors.columns = ["Director", "Count"]
-sns.barplot(data=top_directors, x="Director", y="Count", hue="Director", dodge=False, palette="tab10", legend=False)
+fig, ax = plt.subplots()
+sns.barplot(data=top_directors, x="Director", y="Count", hue="Director", dodge=False, palette="tab10", ax=ax, legend=False)
+ax.set_xlabel("Director", color="white")
+ax.set_ylabel("Count", color="white")
+ax.set_title("Top 10 Directors", color="white")
+ax.tick_params(colors="white")
 plt.xticks(rotation=90)
-plt.xlabel("Director")
-plt.ylabel("Count")
-st.pyplot(plt.gcf())
-plt.clf()
+st.pyplot(fig)
+plt.close(fig)
 
-# -------------------------------
-# ✅ Top Genres: Movies vs TV Shows
-# -------------------------------
+#Top Genres: Movies vs TV Shows
 st.subheader("🎭 Popular Genres")
 
 movies_df = filtered_df[filtered_df['type'] == 'Movie']
@@ -163,34 +168,42 @@ col3, col4 = st.columns(2)
 
 with col3:
     st.markdown("**Movies:**")
-    sns.barplot(data=movie_genres, x="Genre", y="Count", palette="Reds_r")
+    fig, ax = plt.subplots()
+    sns.barplot(data=movie_genres, x="Genre", y="Count", palette="Reds_r", ax=ax)
+    ax.set_xlabel("Genre", color="white")
+    ax.set_ylabel("Count", color="white")
+    ax.set_title("Top 10 Movie Genres", color="white")
+    ax.tick_params(colors="white")
     plt.xticks(rotation=45)
-    st.pyplot(plt.gcf())
-    plt.clf()
+    st.pyplot(fig)
+    plt.close(fig)
 
 with col4:
     st.markdown("**TV Shows:**")
-    sns.barplot(data=tvshow_genres, x="Genre", y="Count", palette="Set2")
+    fig, ax = plt.subplots()
+    sns.barplot(data=tvshow_genres, x="Genre", y="Count", palette="Set2", ax=ax)
+    ax.set_xlabel("Genre", color="white")
+    ax.set_ylabel("Count", color="white")
+    ax.set_title("Top 10 TV Show Genres", color="white")
+    ax.tick_params(colors="white")
     plt.xticks(rotation=45)
-    st.pyplot(plt.gcf())
-    plt.clf()
+    st.pyplot(fig)
+    plt.close(fig)
 
-# -------------------------------
-# ✅ Yearly & Monthly Trends
-# -------------------------------
+# Yearly & Monthly Trends
 st.subheader("📅 Content Added Over Time")
 
 yearly = (
     filtered_df.groupby(['year_added', 'type']).size().reset_index(name='Count').dropna()
 )
-
-plt.figure(figsize=(12,6))
-sns.barplot(data=yearly, x='year_added', y='Count', hue='type', palette='tab10')
-plt.xlabel("Year Added")
-plt.ylabel("Number of Titles")
-plt.title("Yearly Releases")
-st.pyplot(plt.gcf())
-plt.clf()
+fig, ax = plt.subplots(figsize=(12,6))
+sns.barplot(data=yearly, x='year_added', y='Count', hue='type', palette='tab10', ax=ax)
+ax.set_xlabel("Year Added", color="white")
+ax.set_ylabel("Number of Titles", color="white")
+ax.set_title("Yearly Releases", color="white")
+ax.tick_params(colors="white")
+st.pyplot(fig)
+plt.close(fig)
 
 monthly = (
     filtered_df.groupby(['month_num', 'month_added', 'type'])
@@ -199,8 +212,7 @@ monthly = (
     .dropna()
     .sort_values('month_num')
 )
-
-plt.figure(figsize=(12,6))
+fig, ax = plt.subplots(figsize=(12,6))
 sns.barplot(
     data=monthly,
     x='month_added',
@@ -210,43 +222,46 @@ sns.barplot(
         'January','February','March','April','May','June',
         'July','August','September','October','November','December'
     ],
-    palette='tab10'
+    palette='tab10',
+    ax=ax
 )
-plt.xlabel("Month Added")
-plt.ylabel("Number of Titles")
-plt.title("Monthly Releases")
+ax.set_xlabel("Month Added", color="white")
+ax.set_ylabel("Number of Titles", color="white")
+ax.set_title("Monthly Releases", color="white")
+ax.tick_params(colors="white")
 plt.xticks(rotation=45)
-st.pyplot(plt.gcf())
-plt.clf()
+st.pyplot(fig)
+plt.close(fig)
 
-#Duration Analysis
+# Duration Analysis
 st.subheader("⏱️ Duration Analysis")
-
-# ✅ Define the columns first!
 col5, col6 = st.columns(2)
 
-# Movies Duration
 with col5:
     st.markdown("**Movies (Minutes)**")
     movie_durations = movies_df['duration_int'].dropna()
-    fig1, ax1 = plt.subplots()
-    sns.histplot(movie_durations, bins=30, kde=True, color="#E50914", ax=ax1)
-    ax1.set_xlabel("Minutes")
-    ax1.set_title("Movie Durations")
-    st.pyplot(fig1)
+    fig, ax = plt.subplots()
+    sns.histplot(movie_durations, bins=30, kde=True, color="#E50914", ax=ax)
+    ax.set_xlabel("Minutes", color="white")
+    ax.set_ylabel("Frequency", color="white")
+    ax.set_title("Movie Durations", color="white")
+    ax.tick_params(colors="white")
+    st.pyplot(fig)
+    plt.close(fig)
 
-# TV Shows Duration
 with col6:
     st.markdown("**TV Shows (Seasons)**")
     tv_durations = tvshows_df['duration_int'].dropna()
-    fig2, ax2 = plt.subplots()
-    sns.countplot(x=tv_durations, palette="tab10", ax=ax2)
-    ax2.set_xlabel("Seasons")
-    ax2.set_ylabel("Count")
-    ax2.set_title("TV Show Seasons")
-    st.pyplot(fig2)
+    fig, ax = plt.subplots()
+    sns.countplot(x=tv_durations, palette="tab10", ax=ax)
+    ax.set_xlabel("Seasons", color="white")
+    ax.set_ylabel("Count", color="white")
+    ax.set_title("TV Show Seasons", color="white")
+    ax.tick_params(colors="white")
+    st.pyplot(fig)
+    plt.close(fig)
 
-#Download Cleaned Data
+# Download Cleaned Data
 st.markdown("### 📥 Download Filtered Dataset")
 st.download_button(
     label="Download CSV",
@@ -255,9 +270,9 @@ st.download_button(
     mime='text/csv'
 )
 
-# Footer
+#Footer
 st.markdown("---")
 st.markdown(
-    "<p style='text-align:center;'>Built using Streamlit | Netflix Data Project</p>",
+    "<p style='text-align:center;'>Built with Streamlit | Netflix Data Project</p>",
     unsafe_allow_html=True
 )
