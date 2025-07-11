@@ -63,7 +63,7 @@ Netflix’s library is:
 
 ---
 
-##**Visuals**
+**Visuals**
 
 Key charts:
 - Movies vs TV Shows bar plot
@@ -87,7 +87,7 @@ pip install pandas matplotlib seaborn streamlit
 
 # 3️⃣ Run the notebook or the Streamlit dashboard
 streamlit run netflix_dashboard.py
-
+```
 Streamlit Dashboard
 This project includes a Streamlit app with:
 
@@ -98,10 +98,8 @@ Visuals for Type, Ratings, Genres, Countries
 Duration insights
 
 Cleaned data download button
-
-👉 Demo: Streamlit App
-👉 Live Demo: Streamlit App
-(Replace with your deployed link)
+ 
+👉 Live Dashboard: [Streamlit App](https://netflixdata-cleaning-analysis-and-visualization-c9cbeeggyr6wjm.streamlit.app/)
 
 🛠️ Technologies Used
 Python 3
@@ -115,7 +113,7 @@ Seaborn
 📜 Author
 Ambrose Henry
 
-🔗 GitHub | LinkedIn
+🔗 [GitHub](https://github.com/IamAmbrose) | [LinkedIn](https://www.linkedin.com/in/ambrose-henry-m-30bb84235/)
 
 ⭐️ Show Your Support!
 If you like this project:
