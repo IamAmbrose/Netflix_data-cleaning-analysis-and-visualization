@@ -1,4 +1,4 @@
-# 🎬 Netflix Data: Cleaning, Analysis & Visualization (Beginner ML Project)
+# 🎬 Netflix Data: Cleaning, Analysis & Visualization
 
 This project analyzes a real Netflix dataset with **Python, Pandas, Matplotlib, Seaborn, and Streamlit**.  
 It includes data cleaning, exploratory data analysis (EDA), clear insights, and is ready for beginner-level machine learning tasks.
@@ -25,35 +25,35 @@ It includes data cleaning, exploratory data analysis (EDA), clear insights, and 
 
 ## 🔍 **Key Insights & Findings**
 
-✅ **Content Type:**  
+**Content Type:**  
 - ~70% Movies, ~30% TV Shows  
 - TV Shows often short-run (1–2 seasons).
 
-✅ **Top Countries:**  
+**Top Countries:**  
 - US leads (3,240+ titles) — India, UK, Japan & South Korea add global variety.
 
-✅ **Popular Genres:**  
+**Popular Genres:**  
 - Movies: *International Movies*, *Dramas*, *Comedies*, *Documentaries*
 - TV Shows: *International TV Shows*, *Crime*, *TV Dramas*, *Kids' TV*
 
-✅ **Ratings:**  
+**Ratings:**  
 - Mostly mature: *TV-MA*, *TV-14* dominate.
 - Smaller share: family/kids (TV-Y, TV-PG).
 
-✅ **Directors:**  
+**Directors:**  
 - Many missing (`Not Given`) but top contributors include **Rajiv Chilaka**, **Martin Scorsese**, etc.
 
-✅ **Time Trends:**  
+**Time Trends:**  
 - Huge spike 2016–2019, slight drop during pandemic.
 - Monthly peaks in Jan/Mar → strategic releases.
 
-✅ **Durations:**  
+**Durations:**  
 - Average Movie: ~99 mins
 - Average TV Show: ~1.75 seasons
 
 ---
 
-## ✅ **Conclusion**
+##**Conclusion**
 
 Netflix’s library is:
 - Heavy on **US content** but strongly global.
@@ -63,7 +63,7 @@ Netflix’s library is:
 
 ---
 
-## 📈 **Visuals**
+##**Visuals**
 
 Key charts:
 - Movies vs TV Shows bar plot
@@ -122,6 +122,6 @@ If you like this project:
 
 ⭐️ Star this repo
 
-📣 Share with other beginners
+📣 Share with others
 
 ✅ Fork it and try your own analysis!

@@ -237,24 +237,24 @@ plt.clf()
 # -------------------------------
 st.subheader("⏱️ Duration Analysis")
 
-col5, col6 = st.columns(2)
-
+# Movies Duration
 with col5:
     st.markdown("**Movies (Minutes)**")
-    movie_durations = movies_df['duration_int'].dropna()
-    sns.histplot(movie_durations, bins=30, kde=True, color="#E50914")
-    plt.xlabel("Minutes")
-    st.pyplot(plt.gcf())
-    plt.clf()
+    fig1, ax1 = plt.subplots()
+    sns.histplot(movie_durations, bins=30, kde=True, color="#E50914", ax=ax1)
+    ax1.set_xlabel("Minutes")
+    ax1.set_title("Movie Durations")
+    st.pyplot(fig1)
 
+# TV Shows Duration
 with col6:
     st.markdown("**TV Shows (Seasons)**")
-    tv_durations = tvshows_df['duration_int'].dropna()
-    sns.countplot(x=tv_durations, palette="tab10")
-    plt.xlabel("Seasons")
-    plt.ylabel("Count")
-    st.pyplot(plt.gcf())
-    plt.clf()
+    fig2, ax2 = plt.subplots()
+    sns.countplot(x=tv_durations, palette="tab10", ax=ax2)
+    ax2.set_xlabel("Seasons")
+    ax2.set_ylabel("Count")
+    ax2.set_title("TV Show Seasons")
+    st.pyplot(fig2)
 
 # -------------------------------
 # ✅ Download Cleaned Data
